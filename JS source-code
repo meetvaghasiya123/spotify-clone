@@ -1,0 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const playButtons = document.querySelectorAll('.play-btn');
+    const audioPlayers = document.querySelectorAll('.audio-player');
+
+    playButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const audioPlayer = audioPlayers[index]; // Get the corresponding audio player
+            if (audioPlayer.paused) {
+                // If paused, play the audio
+                audioPlayer.play();
+                button.innerHTML = '<span><i class="fa-solid fa-pause"></i></span>';
+            } else {
+                // If playing, pause the audio
+                audioPlayer.pause();
+                button.innerHTML = '<span><i class="fa-solid fa-play"></i></span>';
+            }
+        });
+    });
+});
